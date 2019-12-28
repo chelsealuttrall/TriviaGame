@@ -1,0 +1,83 @@
+/*Background*/
+
+#background {
+    background-image: url("https://wallsdesk.com/wp-content/uploads/2017/01/Octopus-Wallpaper-.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/*HEADER*/
+
+header {
+    background-color: slateblue;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Mystery Quest', cursive, sans-serif;
+    font-size: 10em;
+    margin: 0
+}
+
+h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    vertical-align: bottom;
+}
+
+
+/*Main*/
+
+main {
+    background-color: purple;
+    padding: 4px;
+}
+
+#quizDiv {
+    background-color: darkblue;
+}
+
+aside {
+    background-color: peru;
+    padding: 2px;
+    margin: 3px;
+    width: 25%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.emptySpan1 {
+    width: 25%;
+}
+
+aside:first-child {
+    flex-wrap: wrap;
+}
+
+aside:nth-child(2) {
+    text-align: right;
+}
+
+
+/*Footer*/
+
+footer {
+    margin: 10px auto;
+    background-color: black;
+    color: white;
+    padding: 7px;
+    min-height: 100%;
+}
+
+footer:first-child {
+    text-align: center;
+}
+
+footer:nth-child(2) {
+    margin: 0px auto;
+    text-align: center;
+}
+
+button {
+    width: 15%;
+    height: 100%;
+}
