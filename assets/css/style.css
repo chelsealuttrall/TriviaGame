@@ -29,20 +29,28 @@ h2 {
 /*Main*/
 
 main {
-    background-color: purple;
+    background-color: slateblue;
     padding: 4px;
-}
-
-#quizDiv {
-    background-color: darkblue;
+    width: 99.4%;
+    display: flex;
 }
 
 aside {
     background-color: peru;
-    padding: 2px;
     margin: 3px;
     width: 25%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex
+}
+
+#quizDiv {
+    background-color: darkblue;
+    justify-content: right;
+    width: 75%;
+    max-height: auto;
+    color: white;
+    font-family: arial;
+    margin: 3px;
 }
 
 .emptySpan1 {
@@ -51,6 +59,7 @@ aside {
 
 aside:first-child {
     flex-wrap: wrap;
+    padding: 10px;
 }
 
 aside:nth-child(2) {
