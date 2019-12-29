@@ -47,12 +47,18 @@ aside {
 
 #quizDiv {
     background-color: rgb(30, 30, 66);
-    justify-content: right;
     width: 75%;
     max-height: auto;
     color: white;
     font-family: arial;
     margin: 3px;
+    text-align: center;
+}
+
+#submit {
+    height: 50px;
+    width: auto;
+    vertical-align: bottom;
 }
 
 .emptySpan1 {
