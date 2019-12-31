@@ -1,7 +1,7 @@
 /*Background*/
 
 #background {
-    background-image: url("https://wallsdesk.com/wp-content/uploads/2017/01/Octopus-Wallpaper-.jpg");
+    background-image: url("/assets/images/Octomon.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -52,6 +52,7 @@ aside {
     color: white;
     font-family: arial;
     margin: 3px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -67,11 +68,11 @@ aside {
 
 aside:first-child {
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 15px;
 }
 
-aside:nth-child(2) {
-    text-align: right;
+aside:nth-child(3) {
+    width: 75%;
 }
 
 
@@ -91,7 +92,6 @@ footer:first-child {
 
 footer:nth-child(2) {
     margin: 0px auto;
-    text-align: center;
 }
 
 button {

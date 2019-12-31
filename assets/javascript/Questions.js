@@ -1,6 +1,3 @@
-//Global Variables
-//Q&A
-//My objects of questions, answers, possible fake answers, and a tidbit for each.
 var question1 = {
     q: "What's the current, accepted plural form of \"Octopus\"?",
     a: "Octopuses",
@@ -70,38 +67,3 @@ var question10 = {
     p: ["less than a year", "40-50 years or more", "over 5 years", "2 months or less"],
     f: "Most have a very short lifespan of 6 months to a year. The males die shortly after mating, and the females die after their babies hatch...bad case of empty nest syndrome!",
 };
-let questionPrint = document.getElementById("questionsHTML").innerText = questions();
-let possibilitiesPrint = document.getElementById("choicesHTML").innerHTML = possibilities();
-let questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
-
-//Display first question
-
-questions() = {
-
-    for (i = 0, i < questionArray[].length, i++) {
-        document.getElementById("questionsHTML").innerText = questionArray[i],
-            console.log(questionArray[i]),
-    }
-};
-
-//display first answer options in radio buttons
-
-possibilities() = {
-    // document.getElementsByName('rad').innerText =
-    //        for (i = 0; i < question[i].p.length; i++) {
-    //            console.log(question1[p]),
-    //                document.getElementByType("radio").innerText = (radio_button + i)
-
-
-};
-
-// Loop through questions in order
-
-//On click function for selection
-
-//Determine Correct/Wrong
-
-//Tally Score
-
-//Now, what do you think? Animal or Alien?
-//Read more here: http://www.worldanimalfoundation.net/f/octopus.pdf
