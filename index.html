@@ -13,26 +13,48 @@
 
 <body id="background">
     <header>
-        <h1>Octopus!</h1>
+        <div id="headerColor">
 
-        <h2>How well do you know your resident alien?</h2>
-    </header>
-    <main>
-        <aside>
-            <h3>"They could take over the world, if only they were collaborative."</h3>
-            <span class="emptySpan1"></span>
-            <h4>-San Diego Aquarium Volunteer</h4>
-
-        </aside>
-        <div id="quizDiv">
-            <span id="questionsHTML"></span><br><br>
-            <span id="choicesHTML">
-              <!-- <INPUT TYPE="radio" NAME="rad" VALUE="radio_button1" onClick=i><br> -->
-                </span>
-            <br><br>
-            <button id="submit">Submit Answer</button>
-            <span id="tidbitHTML"></span>
         </div>
+        <div id="headerElements">
+            <h1>Octopus!</h1>
+
+            <h2>How well do you know your resident alien?</h2>
+        </div>
+    </header>
+    <br>
+    <main>
+
+        <div id="quizSide">
+            <div id="asideHolster">
+                <aside id="asideColor"></aside>
+                <aside id="asideContent">
+                    <h3>"They could take over the world, if only they were collaborative."</h3>
+                    <br>
+                    <h4>-San Diego Aquarium Volunteer</h4>
+                </aside>
+            </div>
+            <div id="quizDiv">
+                <div id="colorbreak">
+                    <br>
+                    <span id="questionsHTML" class="quizText"></span>
+                    <br>
+                    <br>
+                    <span id="choicesHTML" class="quizText">
+                  <!-- <INPUT TYPE="radio" NAME="rad" VALUE="radio_button1" onClick=i><br> -->
+                    </span>
+                    <br><br>
+                    <div id="submit">
+                        <button>Submit Answer</button>
+                        <br>
+                        <span id="tidbitHTML"></span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
     </main>
     <div>
         <footer>
@@ -46,8 +68,8 @@
 
     <!--JS/JQ Links-->
     <!--<script type="text/javascript" src="assets/javascript/Questions.js"></script>-->
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
 
