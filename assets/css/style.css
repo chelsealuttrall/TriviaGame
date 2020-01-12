@@ -127,10 +127,11 @@
     
     #tidbitHTML {
         color: white;
+        background-color: black;
         font-family: arial;
         margin: 3px;
-        display: flex;
-        flex-wrap: wrap;
+        width: 100%;
+        text-align: center;
     }
     
     #submit {

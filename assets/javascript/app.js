@@ -5,7 +5,7 @@ var question1 = {
     q: "What's the current, accepted plural form of \"Octopus\"?",
     a: "Octopuses",
     p: ["Octopi", "Octopieces", "Octopuses", "Octopus"],
-    f: "Geez...if they hung out in plural, imagine all the arms!",
+    f: "Geez...if they hung out in plural, imagine all the arms!..But they don't.",
 };
 
 var question2 = {
@@ -72,11 +72,12 @@ var question10 = {
 };
 let currentQuestionIndex = 0;
 let questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
+let newQuestion
+    //Displaying Question in HTML
 $("#questionsHTML").text(questionArray[currentQuestionIndex].q);
-//document.getElementById("questionsHTML").innerText = questionArray[currentQuestionIndex].q;
+//Displaying Multiple Choice Selection in HTML
 $("#choicesHTML").html(possibilities(currentQuestionIndex));
-//document.getElementById("choicesHTML").innerHTML = possibilities(currentQuestionIndex) ;
-
+//Putting multiple choice selection to radio buttons and displaying.
 function possibilities(index) {
     let possiblitiesDiv = $("<div>");
     for (let i = 0; i < questionArray[index].p.length; i++) {
@@ -87,11 +88,44 @@ function possibilities(index) {
     return possiblitiesDiv;
 };
 
+
+//hide factDiv
+$(fact()).hide
+
+//display fact
+
+
+$("#tidbitHTML").html(fact(currentQuestionIndex));
+
+function fact(index) {
+    let factDiv = $("<div>");
+    for (let i = 0; i < questionArray[index].f.length; i++) {
+        let factDiv = $("#tidbitHTML").append(questionArray[index].f[i]);
+    }
+}
+
+//push submit and displays fact and correct answer
+
+$("#submitBTN").on("click", function(newQuestion) {
+    console.log("submit");
+    // $(fact(currentQuestionIndex)).show;
+    // return correctAnswer();
+    //delay
+
+
+});
+
+
+
+
+//currentQuestionIndex = ++
+//.delay(500), 
 // Loop through questions in order
 
 //On click function for selection
 
 //Determine Correct/Wrong
+let correctAnswer = function() {}
 
 //Tally Score
 
