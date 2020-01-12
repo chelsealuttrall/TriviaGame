@@ -78,42 +78,45 @@ $("#questionsHTML").text(questionArray[currentQuestionIndex].q);
 //Displaying Multiple Choice Selection in HTML
 $("#choicesHTML").html(possibilities(currentQuestionIndex));
 //Putting multiple choice selection to radio buttons and displaying.
-function possibilities(index) {
+function possibilities(currentQuestionIndex) {
     let possiblitiesDiv = $("<div>");
-    for (let i = 0; i < questionArray[index].p.length; i++) {
-        let possiblityInput = $("<input>").attr("type", "radio").val(questionArray[index].p[i]).attr("name", "question" + index);
-        let possibilityLabel = $("<label>").text(questionArray[index].p[i]);
+    for (let i = 0; i < questionArray[currentQuestionIndex].p.length; i++) {
+        let possiblityInput = $("<input>").attr("type", "radio").val(questionArray[currentQuestionIndex].p[i]).attr("name", "question" + currentQuestionIndex);
+        let possibilityLabel = $("<label>").text(questionArray[currentQuestionIndex].p[i]);
         possiblitiesDiv.append(possiblityInput, possibilityLabel, "<br>")
     }
     return possiblitiesDiv;
 };
 
 
-//hide factDiv
-$(fact()).hide
+
+//hide fact
+//$(fact).hide;
 
 //display fact
 
 
 $("#tidbitHTML").html(fact(currentQuestionIndex));
 
-function fact(index) {
+function fact(currentQuestionIndex) {
     let factDiv = $("<div>");
-    for (let i = 0; i < questionArray[index].f.length; i++) {
-        let factDiv = $("#tidbitHTML").append(questionArray[index].f[i]);
+    for (let i = 0; i < questionArray[currentQuestionIndex].f.length; i++) {
+        let factDiv = $("#tidbitHTML").append(questionArray[currentQuestionIndex].f[i]);
+
     }
 }
 
-//push submit and displays fact and correct answer
+
+//push submit and displays fact and correct answer, then new question
 
 $("#submitBTN").on("click", function(newQuestion) {
     console.log("submit");
-    // $(fact(currentQuestionIndex)).show;
-    // return correctAnswer();
-    //delay
+    $(fact(currentQuestionIndex)).show;
+    return correctAnswer();
+    currentQuestionIndex = ++.delay(500)
 
 
-});
+}) return currentQuestionIndex;
 
 
 
