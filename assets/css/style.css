@@ -113,7 +113,7 @@
     }
     
     #quizDiv {
-        z-index: -2;
+        z-index: 2;
         width: 60%;
         _display: flex;
         _align-self: flex-end;
