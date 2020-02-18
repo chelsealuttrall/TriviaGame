@@ -1,11 +1,5 @@
-//Global Variables
 //Q&A
 //My objects of questions, answers, possible fake answers, and a tidbit for each.
-
-var count
-
-//$(document).ready(function() {
-
 
 var question1 = {
     q: "What's the current, accepted plural form of \"Octopus\"?",
@@ -82,11 +76,23 @@ let correct = 0
 let wrong = 0
 let newQuestion
 
-let questionTimer = 1000
-    //Question Timer
-$("#document").ready().trigger(makeTimer())
+//Display Question in HTML
+let displayQuestion = $("#questionsHTML").text(questionArray[currentQuestionIndex].q);
 
-function makeTimer() {
+//Multiple Choice Display in HTML
+
+let displayChoices = function() {
+    $('#choicesHTML').empty();
+    for (let i = 0; i < questionArray[currentQuestionIndex].p.length; i++) {
+        possibilitiesDiv = $("#choicesHTML").append(`<input name="questions" type="radio">` + `${questionArray[currentQuestionIndex].p[i]}` + `</input>` + `<br>`);
+        $("#choicesHTML").append(possibilitiesDiv);
+    }
+}
+displayChoices();
+
+//Question Timer
+
+function makeTimer(callback) {
 
     count = 10;
 
@@ -94,36 +100,31 @@ function makeTimer() {
 
     function timer() {
         count = count - 1;
+
         if (count < 0) {
             clearInterval(counter);
             console.log("You're out of time")
+            wrong++;
             currentQuestionIndex++;
-            return;
+            callback(currentQuestionIndex);
         }
+
         console.log(count)
         $("#timer").text(count + "seconds left").css("background-color", "white")
     }
-    return currentQuestionIndex;
+
 }
 
+makeTimer(function(cqi) {
+    displayQuestion;
+    displayChoices();;
+})
 
 
-//Display Question in HTML
-$("#questionsHTML").text(questionArray[currentQuestionIndex].q);
 
-//Multiple Choice Display in HTML
-let possibilitiesDiv
 
-let applyRadio = function() {
 
-    for (let i = 0; i < questionArray[currentQuestionIndex].p.length; i++) {
-        possibilitiesDiv = $("#choicesHTML").append(`<input type="radio">` + `${questionArray[currentQuestionIndex].p[i]}` + `</input>` + `<br>`);
-        $("#choicesHTML").append(possibilitiesDiv);
 
-    }
-    console.log(possibilitiesDiv)
-}
-applyRadio();
 
 //Identify Answer
 let correctAnswer = questionArray[currentQuestionIndex].a;
