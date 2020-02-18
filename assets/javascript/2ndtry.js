@@ -2,7 +2,7 @@
 //Q&A
 //My objects of questions, answers, possible fake answers, and a tidbit for each.
 
-
+var count
 
 //$(document).ready(function() {
 
@@ -82,28 +82,29 @@ let correct = 0
 let wrong = 0
 let newQuestion
 
-let questionTimer = 0000
+let questionTimer = 1000
     //Question Timer
-$("#document").ready().trigger("click")
+$("#document").ready().trigger(makeTimer())
 
 function makeTimer() {
 
-    //var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
-    var endTime = new Date("29 April 2020 9:56:00 GMT+01:00");
-    endTime = (Date.parse(endTime) / 1000);
+    count = 10;
 
-    var now = new Date();
-    now = (Date.parse(now) / 1000);
+    var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
 
-    var timeLeft = endTime - now;
-
-    var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
-    if (seconds < "10") { seconds = "0" + seconds; }
-
-    $("#seconds").html(seconds + "<span>Seconds</span>");
+    function timer() {
+        count = count - 1;
+        if (count < 0) {
+            clearInterval(counter);
+            console.log("You're out of time")
+            currentQuestionIndex++;
+            return;
+        }
+        console.log(count)
+        $("#timer").text(count + "seconds left").css("background-color", "white")
+    }
+    return currentQuestionIndex;
 }
-
-setInterval(function() { makeTimer(); }, 1000);
 
 
 
@@ -116,7 +117,7 @@ let possibilitiesDiv
 let applyRadio = function() {
 
     for (let i = 0; i < questionArray[currentQuestionIndex].p.length; i++) {
-        possibilitiesDiv = $("#choicesHTML").append(`<input type="radio">` + `${questionArray[currentQuestionIndex].p[i]}` + `</input>`);
+        possibilitiesDiv = $("#choicesHTML").append(`<input type="radio">` + `${questionArray[currentQuestionIndex].p[i]}` + `</input>` + `<br>`);
         $("#choicesHTML").append(possibilitiesDiv);
 
     }
