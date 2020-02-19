@@ -1,5 +1,9 @@
 //Q&A
 //My objects of questions, answers, possible fake answers, and a tidbit for each.
+let currentQuestionIndex = 0;
+let correct = 0
+let wrong = 0
+let newQuestion
 
 var question1 = {
     q: "What's the current, accepted plural form of \"Octopus\"?",
@@ -70,11 +74,12 @@ var question10 = {
     p: ["less than a year", "40-50 years or more", "over 5 years", "2 months or less"],
     f: "Most have a very short lifespan of 6 months to a year. The males die shortly after mating, and the females die after their babies hatch...bad case of empty nest syndrome!",
 };
-let currentQuestionIndex = 0;
-var questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
-let correct = 0
-let wrong = 0
-let newQuestion
+
+var question11 = {
+    q: "End of Game. You got " + correct + " out of 10 questions correct."
+}
+var questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11];
+
 
 //Display Question in HTML
 let displayQuestion = function() {
@@ -91,6 +96,17 @@ let displayChoices = function() {
     }
 }
 displayChoices();
+
+//Answer Finder
+
+let answerFinder = function() {
+    //Identify Answer
+    let correctAnswer = questionArray[currentQuestionIndex].a;
+    //Identify Answer Index
+    let correctAnswerIndex = (questionArray[currentQuestionIndex].p).indexOf(correctAnswer) //at somewhere??; 
+    console.log("The correct answer is " + correctAnswer + ", index# " + correctAnswerIndex);
+}
+answerFinder();
 
 //Question Timer
 var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
@@ -119,6 +135,8 @@ let runAgain = function() {
     console.log("runAgain is connected")
     displayQuestion();
     displayChoices();
+    answerFinder();
+    fact(currentQuestionIndex);
     counter = setInterval(timer, 1000)
     timer();
 }
@@ -128,12 +146,9 @@ $("#submitBTN").click(function() {
     console.log("The Button Works");
 });
 
-//Identify Answer
-// let correctAnswer = questionArray[currentQuestionIndex].a;
-// //Identify Answer Index
-// let correctAnswerIndex = correctAnswer.indexOf(questionArray[currentQuestionIndex].p) //at somewhere??; 
 
-// console.log("The correct answer is " + correctAnswer + ", index# " + correctAnswerIndex);
+
+
 
 
 // //User's Selection
@@ -152,6 +167,29 @@ $("#submitBTN").click(function() {
 //     }
 // };
 // gradeAnswer().onSubmit
+
+
+
+//Display Fact Div
+// $("#tidbitHTML").html(fact(currentQuestionIndex));
+
+// function fact(currentQuestionIndex) {
+//     //console.log(currentQuestionIndex);
+//     let factDiv = $("<div>");
+//     //console.log(questionArray)
+//     //add fact to page
+//     for (let i = 0; i < questionArray[currentQuestionIndex].q.length; i++) {
+//         let factDiv = $("#tidbitHTML").append(questionArray[currentQuestionIndex].f);
+//         //reveal correct answer
+//         correctAnswer();
+//         currentQuestionIndex++
+//     }
+//     return factDiv;
+// }
+
+
+
+
 
 
 //Restart Game Button
