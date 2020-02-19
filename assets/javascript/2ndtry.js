@@ -102,8 +102,10 @@ displayChoices();
 let answerFinder = function() {
     //Identify Answer
     let correctAnswer = questionArray[currentQuestionIndex].a;
+    return correctAnswer;
     //Identify Answer Index
     let correctAnswerIndex = (questionArray[currentQuestionIndex].p).indexOf(correctAnswer) //at somewhere??; 
+    return correctAnswerIndex
     console.log("The correct answer is " + correctAnswer + ", index# " + correctAnswerIndex);
 }
 answerFinder();
@@ -136,61 +138,43 @@ let runAgain = function() {
     displayQuestion();
     displayChoices();
     answerFinder();
-    fact(currentQuestionIndex);
+    displayFact();
     counter = setInterval(timer, 1000)
     timer();
 }
 
+//display Fact/Tidbit
+let displayFact = function() {
+    $("#tidbitHTML").text(questionArray[currentQuestionIndex].f);
+}
+displayFact();
+
+//User's Selection
+
+var checkedButton = $("#choicesHTML input:radio[name='questions']");
+var selectedIndex = checkedButton.index(checkedButton.filter(':checked'));
+console.log(selectedIndex);
+
+//Grade Answer
+let gradeAnswer = function() {
+    if (selectedIndex == correctAnswerIndex) {
+        correct++
+        console.log("correct answers: " + correct)
+        currentQuestionIndex++
+        runAgain();
+    } else {
+        wrong++
+        console.log("wrong answers: " + wrong)
+        currentQuestionIndex++
+        runAgain();
+    }
+};
+
 //Submit Button Function
 $("#submitBTN").click(function() {
     console.log("The Button Works");
+    gradeAnswer();
 });
-
-
-
-
-
-
-// //User's Selection
-// let choice = $('input[type="radio"]:checked').onSubmit = true; //document.getElementsByType("radio").checked.onSubmit = true;
-
-// //Grade Answer
-// let gradeAnswer = function() {
-//     if (choice == correctAnswer) {
-//         correct++
-//         console.log("correct answers: " + correct)
-//         currentQuestionIndex++
-//     } else {
-//         wrong++
-//         console.log("wrong answers: " + wrong)
-//         currentQuestionIndex++
-//     }
-// };
-// gradeAnswer().onSubmit
-
-
-
-//Display Fact Div
-// $("#tidbitHTML").html(fact(currentQuestionIndex));
-
-// function fact(currentQuestionIndex) {
-//     //console.log(currentQuestionIndex);
-//     let factDiv = $("<div>");
-//     //console.log(questionArray)
-//     //add fact to page
-//     for (let i = 0; i < questionArray[currentQuestionIndex].q.length; i++) {
-//         let factDiv = $("#tidbitHTML").append(questionArray[currentQuestionIndex].f);
-//         //reveal correct answer
-//         correctAnswer();
-//         currentQuestionIndex++
-//     }
-//     return factDiv;
-// }
-
-
-
-
-
 
 //Restart Game Button
 $("#Restart").click(function() {
