@@ -23,7 +23,7 @@ var question3 = {
 };
 
 var question4 = {
-    q: "How many hearts to Octopuses have?",
+    q: "How many hearts do Octopuses have?",
     a: "3",
     p: ["8", "1", "3", "12"],
     f: "Two pump blood through each of the two gills, while the third pumps blood through the body.",
@@ -77,8 +77,10 @@ let wrong = 0
 let newQuestion
 
 //Display Question in HTML
-let displayQuestion = $("#questionsHTML").text(questionArray[currentQuestionIndex].q);
-
+let displayQuestion = function() {
+    $("#questionsHTML").text(questionArray[currentQuestionIndex].q);
+}
+displayQuestion();
 //Multiple Choice Display in HTML
 
 let displayChoices = function() {
@@ -91,62 +93,68 @@ let displayChoices = function() {
 displayChoices();
 
 //Question Timer
+var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
 
-function makeTimer(callback) {
+count = 10;
 
-    count = 10;
+function timer() {
 
-    var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
-
-    function timer() {
-        count = count - 1;
-
-        if (count < 0) {
-            clearInterval(counter);
-            console.log("You're out of time")
-            wrong++;
-            currentQuestionIndex++;
-            callback(currentQuestionIndex);
-        }
-
-        console.log(count)
-        $("#timer").text(count + "seconds left").css("background-color", "white")
+    count = count - 1;
+    console.log(count)
+    if (count == 0) {
+        clearInterval(counter);
+        console.log("You're out of time")
+        wrong++;
+        currentQuestionIndex++;
+        currentQuestionIndex;
+        count = 10;
+        runAgain();
     }
+    $("#timer").text(count + "  seconds left").css("background-color", "white")
+}
+timer();
 
+//Countdown timer repeat and question update
+let runAgain = function() {
+    console.log("runAgain is connected")
+    displayQuestion();
+    displayChoices();
+    counter = setInterval(timer, 1000)
+    timer();
 }
 
-makeTimer(function(cqi) {
-    displayQuestion;
-    displayChoices();;
-})
-
-
-
-
-
-
+//Submit Button Function
+$("#submitBTN").click(function() {
+    console.log("The Button Works");
+});
 
 //Identify Answer
-let correctAnswer = questionArray[currentQuestionIndex].a;
-//Identify Answer Index
-let correctAnswerIndex = correctAnswer.indexOf(questionArray[currentQuestionIndex].p) //at somewhere??; 
+// let correctAnswer = questionArray[currentQuestionIndex].a;
+// //Identify Answer Index
+// let correctAnswerIndex = correctAnswer.indexOf(questionArray[currentQuestionIndex].p) //at somewhere??; 
 
-console.log("The correct answer is " + correctAnswer + ", index# " + correctAnswerIndex);
+// console.log("The correct answer is " + correctAnswer + ", index# " + correctAnswerIndex);
 
 
-//User's Selection
-let choice = $('input[type="radio"]:checked').onSubmit = true; //document.getElementsByType("radio").checked.onSubmit = true;
+// //User's Selection
+// let choice = $('input[type="radio"]:checked').onSubmit = true; //document.getElementsByType("radio").checked.onSubmit = true;
 
-//Grade Answer
-let gradeAnswer = function() {
-    if (choice == correctAnswer) {
-        correct++
-        console.log("correct answers: " + correct)
-        currentQuestionIndex++
-    } else {
-        wrong++
-        console.log("wrong answers: " + wrong)
-        currentQuestionIndex++
-    }
-};
-gradeAnswer().onSubmit
+// //Grade Answer
+// let gradeAnswer = function() {
+//     if (choice == correctAnswer) {
+//         correct++
+//         console.log("correct answers: " + correct)
+//         currentQuestionIndex++
+//     } else {
+//         wrong++
+//         console.log("wrong answers: " + wrong)
+//         currentQuestionIndex++
+//     }
+// };
+// gradeAnswer().onSubmit
+
+
+//Restart Game Button
+$("#Restart").click(function() {
+    console.log("The Restart Button Works")
+});
