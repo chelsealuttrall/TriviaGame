@@ -98,14 +98,13 @@ let displayChoices = function() {
 displayChoices();
 
 //Answer Finder
-
+let correctAnswer = questionArray[currentQuestionIndex].a;
+let correctAnswerIndex = questionArray[currentQuestionIndex].p.indexOf(correctAnswer)
 let answerFinder = function() {
     //Identify Answer
-    let correctAnswer = questionArray[currentQuestionIndex].a;
-    return correctAnswer;
+    correctAnswer;
     //Identify Answer Index
-    let correctAnswerIndex = (questionArray[currentQuestionIndex].p).indexOf(correctAnswer) //at somewhere??; 
-    return correctAnswerIndex
+    correctAnswerIndex;
     console.log("The correct answer is " + correctAnswer + ", index# " + correctAnswerIndex);
 }
 answerFinder();
@@ -113,7 +112,7 @@ answerFinder();
 //Question Timer
 var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
 
-count = 10;
+count = 30;
 
 function timer() {
 
@@ -135,6 +134,7 @@ timer();
 //Countdown timer repeat and question update
 let runAgain = function() {
     console.log("runAgain is connected")
+    timer().stop();
     displayQuestion();
     displayChoices();
     answerFinder();
@@ -153,7 +153,7 @@ displayFact();
 
 var checkedButton = $("#choicesHTML input:radio[name='questions']");
 var selectedIndex = checkedButton.index(checkedButton.filter(':checked'));
-console.log(selectedIndex);
+console.log("selectedIndex" + selectedIndex);
 
 //Grade Answer
 let gradeAnswer = function() {
