@@ -2,80 +2,37 @@
 <html lang="en">
 <link href="https://fonts.googleapis.com/css?family=Mystery+Quest&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Octopus Trivia Game</title>
+    <title>Prosthetic Hand Training Game</title>
 </head>
 
 <body id="background">
     <header>
-        <div id="headerColor">
-
-        </div>
-        <div id="headerElements">
-            <h1>Octopus!</h1>
-
-            <h2>How well do you know your resident alien?</h2>
-        </div>
+        
     </header>
     <br>
     <main>
+        <h1>My Prosthesis</h1>
 
-        <div id="quizSide">
-            <div id="asideHolster">
-                <aside id="asideColor"></aside>
-                <aside id="asideContent">
-                    <h3>"They could take over the world, if only they were collaborative."</h3>
-                    <br>
-                    <h4>-San Diego Aquarium Volunteer</h4>
-                </aside>
-            </div>
-            <div id="quizDiv">
-                <div id="colorbreak">
-                    <br>
-                    <span id="questionsHTML" class="quizText"></span>
-                    <br>
-                    <br>
-                    <span id="choicesHTML" class="quizText">
-                  <!-- <INPUT TYPE="radio" NAME="rad" VALUE="radio_button1" onClick=i><br> -->
-                    </span>
-                    <br><br>
-                    <div id="submit">
-                        <button id="submitBTN">Submit Answer</button>
-                        <br>
-                        <br>
-
-                        <div id="timer"></div>
-                    </div>
-
-                </div>
-
-
-            </div>
+        <div id="myProsthesis">
+            {{iconHi5}}
         </div>
-
+        <div><input id="userInput" type="text" onkeydown="gestureSelector(event)"></div>
     </main>
-    <br>
-    <div id="tidbitHTML"></div>
-    <br>
-    <div>
-        <footer>
-            <button id="Restart">Restart Game</button>
-            <br>
-            <h6>Copyright &copy; 2019</h6>
-
-
-        </footer>
-    </div>
+    
+    
 
     <!--JS/JQ Links-->
     <!--<script type="text/javascript" src="assets/javascript/Questions.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/javascript/2ndtry.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
 
