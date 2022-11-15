@@ -1,15 +1,15 @@
 //Q&A
 //My objects of questions, answers, possible fake answers, and a tidbit for each.
 let currentQuestionIndex = 0;
-let correct = 0
-let wrong = 0
-let newQuestion
+let correct = 0;
+let wrong = 0;
+let newQuestion;
 
 var question1 = {
     q: "What's the current, accepted plural form of \"Octopus\"?",
     a: "Octopuses",
     p: ["Octopi", "Octopieces", "Octopuses", "Octopus"],
-    f: "Geez...if they hung out in plural, imagine all the arms!..But they don't.",
+    f: "Geez...if they hung out in plural, imagine all the arms! But they don't.",
 };
 
 var question2 = {
@@ -99,47 +99,50 @@ displayChoices();
 
 //Answer Finder
 let correctAnswer = questionArray[currentQuestionIndex].a;
-let correctAnswerIndex = questionArray[currentQuestionIndex].p.indexOf(correctAnswer)
-let answerFinder = function() {
+let correctAnswerIndex = questionArray[currentQuestionIndex].p.indexOf(correctAnswer);
+let answerFinder = function(correctAnswerIndex) {
     //Identify Answer
     correctAnswer;
     //Identify Answer Index
     correctAnswerIndex;
-    console.log("The correct answer is " + correctAnswer + ", index# " + correctAnswerIndex);
+    console.log("The correct answer is " + correctAnswer + ", correct answer index# " + correctAnswerIndex);
 }
 answerFinder();
 
 //Question Timer
-var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
-
-count = 30;
+var counter; //1000 will  run it every 1 second
+var count;
 
 function timer() {
-
+    count = 30;
+    counter = setInterval(timer, 1000)
+    
     count = count - 1;
     console.log(count)
     if (count == 0) {
-        clearInterval(counter);
-        console.log("You're out of time")
+       //clearInterval(counter);
+        console.log("You're out of time");
         wrong++;
         currentQuestionIndex++;
         currentQuestionIndex;
-        count = 10;
-        runAgain();
+        if (currentQuestionIndex == 11) {
+            clearInterval(counter);
+        } else (runAgain());
+        
     }
-    $("#timer").text(count + "  seconds left").css("background-color", "white")
+    $("#timer").text(count + "  seconds left").css("background-color", "white");
 }
 timer();
 
 //Countdown timer repeat and question update
 let runAgain = function() {
-    console.log("runAgain is connected")
-    timer().stop();
+    console.log("runAgain is connected");
+    clearInterval(counter);
     displayQuestion();
     displayChoices();
     answerFinder();
     displayFact();
-    counter = setInterval(timer, 1000)
+    // counter = setInterval(timer, 1000)
     timer();
 }
 
