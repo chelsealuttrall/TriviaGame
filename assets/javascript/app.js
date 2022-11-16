@@ -14,13 +14,20 @@ let iconPoint = `<span class="material-symbols-outlined">
 pan_tool_alt
 </span>`;
 
+let iconFist = '<img src="./assets/images/Closed.Fist.png" alt="hand in fist">';
+
 //active at load
+// when user inputs j, the finger changes to point.
 addEventListener("keydown", (event) => {
   var keyName = event.key;
   console.log(keyName);
   if (keyName == "j") {
     Point();
-  } else Hi5();
+  } 
+  else if (keyName == " " ){
+    Fist();
+  }
+  else Hi5();
   console.log(event);
   document.getElementById("userInput").value = "";
 });
@@ -37,7 +44,13 @@ function Point() {
   document.getElementById("myProsthesis").innerHTML = iconPoint;
 }
 
-//when user inputs j, the finger changes to point.
+function Fist() {
+  document.getElementById("myProsthesis").innerHTML = iconFist;
+}
+
+
+
+
 function gestureSelector(event) {
 
 }
