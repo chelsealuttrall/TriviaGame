@@ -6,15 +6,11 @@
 //Phase 4) Make level two timed.
 //Phase 5) Make a car or plane race game.
 
-let iconHi5 = `<span class="material-symbols-outlined">
-back_hand
-</span>`;
+let iconHi5 = '<img src="./assets/images/open.hand.png" alt="high five" class="imageDiv">';
 
-let iconPoint = `<span class="material-symbols-outlined">
-pan_tool_alt
-</span>`;
+let iconPoint = '<img src="./assets/images/index.finger.png" alt="pointing hand" class="imageDiv">';
 
-let iconFist = '<img src="./assets/images/Closed.Fist.png" alt="hand in fist">';
+let iconFist = '<img src="./assets/images/Closed.Fist.png" alt="hand in fist" class="imageDiv"j>';
 
 //active at load
 // when user inputs j, the finger changes to point.
