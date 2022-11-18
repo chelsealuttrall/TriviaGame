@@ -1,14 +1,49 @@
-    /*Background*/
-    
-    #background {
-        background-image: url("");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    /*HEADER*/
-    
-    
-    .imageDiv {
-        height: 300px;
-        
-    }
+/*Background*/
+
+#background {
+  background-image: url("");
+  background: #71e5fcb9;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/*HEADER*/
+
+.imageDiv {
+  height: 300px;
+}
+
+/* hand annimation */
+.handbox {
+    float:left;
+    align-content: flex-end;
+    height: 300px;
+    width: 300px;
+
+}
+
+.handback {
+position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  left: 25px;
+  top: 65px;
+  border: 3px solid #73AD21;
+}
+
+.finger {
+    float: left;
+  margin: 0px 6px 0px 0;
+  height: 60px;
+  width: 21px;
+  background-color: purple;
+}
+
+.finger-1 {
+    position: relative;
+    top: 90px;
+}
+.finger-2 {
+    position: relative;
+    left: 1;
+}
